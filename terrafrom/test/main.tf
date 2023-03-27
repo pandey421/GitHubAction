@@ -9,3 +9,7 @@ output "hello_world" {
 output "second" {
   value = "Second World!"
 }
+
+output nameAgeSchool {
+  value = "Name is ${var.username}"
+}
