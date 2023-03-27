@@ -1,6 +1,11 @@
-name: hello
+name: My First Git Hub Actions
 
-on: [push]
+on: 
+ workflow_dispatch:
+ push:
+   branches: main
+   
+
 
 jobs:
   build:
