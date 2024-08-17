@@ -1,0 +1,24 @@
+# AI-Assisted
+name: PR Commenter Bot
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Comment on PR
+      uses: actions/github-script@v4
+      with:
+        script: |
+          github.issues.createComment({
+            issue_number: context.payload.pull_request.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'Thank you for your pull request! We will review it shortly.'
+          })
